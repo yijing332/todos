@@ -1,0 +1,13 @@
+<ul class="todo-list">
+    <li ng-repeat="todo in todos|filter:{completed:true}" ng-class="{completed:todo.completed,editing:todo.id===edited}">
+        <div class="view">
+            <!--                    <input class="toggle" type="checkbox" ng-click="clickInput(todo)">-->
+            <input class="toggle" type="checkbox" ng-model="todo.completed">
+            <label ng-dblclick="editing(todo.id)">{{todo.text}}</label>
+            <button class="destroy" ng-click="deleteTodo(todo.id)"></button>
+        </div>
+        <form ng-submit="save()">
+            <input class="edit" ng-model="todo.text">
+        </form>
+    </li>
+</ul>
